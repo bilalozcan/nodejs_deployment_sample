@@ -3,10 +3,13 @@ const sql = require('mssql');
 
 
 async function getAllProducts() {
-
+    console.log('debug print 1');
     try {
+        console.log('debug print 2');
         let pool = await sql.connect(config);
+        console.log('debug print 3');
         let products = await pool.request().query("SELECT * from product");
+        console.log('debug print 4');
         return products.recordsets;
     }
     catch (error) {
