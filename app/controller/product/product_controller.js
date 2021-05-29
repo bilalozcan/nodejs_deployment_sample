@@ -10,8 +10,8 @@ const productUpdatePath = '/product/update';
 router.get(productAllPath, (request, response) => {
     Product.getAllProducts().then(result => {
         //console.log({ 'data': result[0], 'success': true });
-        response.render('index', { title: 'Memmar' });
-        //response.json({ 'data': result[0], 'success': true });
+        //response.render('index', { title: 'Memmar' });
+        response.json({ 'data': result[0], 'success': true });
     });
 });
 
