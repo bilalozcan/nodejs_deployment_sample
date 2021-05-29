@@ -9,6 +9,7 @@ const productUpdatePath = '/product/update';
 
 router.get(productAllPath, (request, response) => {
     Product.getAllProducts().then(result => {
+        //response.render('index', { title: 'Express' });
         response.json({ 'data': result[0], 'success': true });
     });
 });
