@@ -3,11 +3,22 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const UserController = require('./app/controller/user/user_controller');
+const ProductController = require('./app/controller/product/product_controller');
+const CompanyController = require('./app/controller/company/company_controller');
 
 var app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(UserController.router);
+app.use(ProductController.router);
+app.use(CompanyController.router);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
